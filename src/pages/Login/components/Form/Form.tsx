@@ -1,10 +1,11 @@
-import { TerrariumHeader } from '../../../../components/TerrariumHeader/TerrariumHeader'
-import styles from './Form.module.css'
+import { Message } from "../../../../components/MessageNewUsers/Message";
+import styles from "./Form.module.css";
 
 export const Form = () => {
   return (
-    <form action="">
-        <TerrariumHeader />
-    </form>
-  )
-}
+    <div className={styles.mainContainer}>
+      <Message />
+      <form action="" className={styles.containerForm}></form>
+    </div>
+  );
+};
