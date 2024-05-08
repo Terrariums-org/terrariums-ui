@@ -1,5 +1,6 @@
 import React, { HTMLInputTypeAttribute } from "react";
 import styles from "./Input.module.css";
+import { UseFormRegisterReturn } from "react-hook-form";
 //import { UseFormRegisterReturn } from "react-hook-form";
 
 interface Props {
@@ -7,13 +8,13 @@ interface Props {
   text: string;
   type?: HTMLInputTypeAttribute;
 
-  //config?: UseFormRegisterReturn;
+  config?: UseFormRegisterReturn;
 }
 
 export const Input: React.FC<Props> = ({
   text,
   type = "text",
-  //config,
+  config,
   titleInput,
 }) => {
   return (
@@ -24,7 +25,7 @@ export const Input: React.FC<Props> = ({
         type={type}
         placeholder={text}
         className={styles.input}
-        //{...config}
+        {...config}
       />
     </div>
   );

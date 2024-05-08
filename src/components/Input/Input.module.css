@@ -10,6 +10,13 @@
   font-size: 1rem;
 }
 
+.input:invalid {
+  background-color: ivory;
+  border: none;
+  outline: 2px solid red;
+  border-radius: 5px;
+}
+
 .input::placeholder {
   font-size: 1rem;
   color: #8897ad;

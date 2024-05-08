@@ -1,0 +1,45 @@
+.containerError {
+  text-transform: capitalize;
+  transition: ease-in-out 1s;
+  animation: first-appear 0.3s;
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2%;
+}
+
+.containerError img {
+  object-fit: fill;
+  width: 5%;
+}
+
+.containerError span {
+  font-size: 1rem;
+  font-family: inter;
+  font-weight: bolder;
+  line-height: normal;
+  color: #dc5b3e;
+}
+
+@keyframes first-appear {
+  0% {
+    transform: translateX(-10%);
+    opacity: 0;
+  }
+  25% {
+    transform: translateX(-5%);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateX(0);
+    opacity: 0.5;
+  }
+
+  75% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}

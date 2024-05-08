@@ -4,25 +4,48 @@ import { HorizontalLine } from "../../../../components/HorizontalLine/Horizontal
 import { Input } from "../../../../components/Input/Input";
 import { Message } from "../../../../components/MessageNewUsers/Message";
 import styles from "./Form.module.css";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { LoginUserBase } from "../../../../entities/entity";
+import { LoginUserSchema } from "../../validator/LoginUser.validator";
 
 export const Form = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_location, setLocation] = useLocation();
+  const {
+    register,
+    handleSubmit,
+  } = useForm<LoginUserBase>({ resolver: zodResolver(LoginUserSchema) });
   const handleRegister = (e: React.MouseEvent) => {
     e.preventDefault();
     setLocation("/register");
   };
-
+  const handleOnSubmit = (data: LoginUserBase) => {
+    console.log(data);
+  };
   return (
     <div className={styles.mainContainer}>
-      <form action="" className={styles.containerForm}>
+      <form
+        onSubmit={handleSubmit(handleOnSubmit)}
+        className={styles.containerForm}
+      >
         <Message
           titleContent="Iniciar Sesión"
           descriptionContent={"Bajo el sol del nuevo día, reptiles acechan."}
           actionTitle="Inicia sesión para comenzar."
         />
-        <Input titleInput="Correo electronico" text="ejemplo@gmail.com" />
-        <Input titleInput="Contraseña" text="Al menos 8 caracteres" />
+        <Input
+          titleInput="Correo electronico"
+          text="ejemplo@gmail.com"
+          config={register("email")}
+          type="email"
+        />
+        <Input
+          type="password"
+          titleInput="Contraseña"
+          text="Al menos 8 caracteres"
+          config={register("password")}
+        />
         <button className={styles.buttonPassword}>
           ¿Olvidate tu contraseña?
         </button>
