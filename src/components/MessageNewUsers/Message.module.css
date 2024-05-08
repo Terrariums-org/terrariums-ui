@@ -1,9 +1,11 @@
 .container {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
   gap:1.3rem;
+  letter-spacing: 0.3px;
 }
 
 .title{

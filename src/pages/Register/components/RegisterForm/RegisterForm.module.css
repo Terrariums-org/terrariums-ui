@@ -1,40 +1,39 @@
 .mainContainer {
   width: 50%;
-  height: 50vh;
+  height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 15px;
 }
 
 .containerForm {
   width: 55%;
+   height: 700px; 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
-  gap: 20px;
+  gap: 15px;
 }
 
-.buttonPassword{
-  margin: 4% 0;
-  background-color: transparent;
-  text-align: right;
-  width: 65%;
-  border: none;
-  color: #C1630C;
-  font-size: 16px;
-  font-weight: 500;
+.containerInputs{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 70%;
+    gap: 10px;
+    
 }
 
-.buttonPassword:hover, .register:hover{
-  cursor: pointer;
-}
-
-.register{
+.login {
   font-size: 1rem;
   background-color: transparent;
-  color: #C1630C;
+  color: #c1630c;
   border: none;
+}
+
+.login:hover{
+    cursor: pointer;
 }

@@ -1,0 +1,12 @@
+.linesContainer{
+    width: 55%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    gap: 12px;
+}
+
+.horizontalLine {
+  border:1px solid #CFDFE2;
+  width: 50%;
+}
