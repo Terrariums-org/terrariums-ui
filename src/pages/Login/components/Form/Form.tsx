@@ -12,16 +12,16 @@ import { LoginUserSchema } from "../../validator/LoginUser.validator";
 export const Form = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_location, setLocation] = useLocation();
-  const {
-    register,
-    handleSubmit,
-  } = useForm<LoginUserBase>({ resolver: zodResolver(LoginUserSchema) });
+  const { register, handleSubmit } = useForm<LoginUserBase>({
+    resolver: zodResolver(LoginUserSchema),
+  });
   const handleRegister = (e: React.MouseEvent) => {
     e.preventDefault();
     setLocation("/register");
   };
   const handleOnSubmit = (data: LoginUserBase) => {
     console.log(data);
+    setLocation("/dashboard");
   };
   return (
     <div className={styles.mainContainer}>
