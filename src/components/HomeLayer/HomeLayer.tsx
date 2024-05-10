@@ -1,9 +1,9 @@
-import styles from "./NavLayer.module.css";
+import styles from "./HomeLayer.module.css";
 import { ReactNode, useState } from "react";
 import { TerrariumHeader } from "../TerrariumHeader/TerrariumHeader";
 import Dashboard from "../../assets/svg/dashboard.svg";
 import AddIcon from "../../assets/svg/add.svg";
-import LogoutIcon from '../../assets/svg/logout.svg'
+import LogoutIcon from "../../assets/svg/logout.svg";
 import { ItemNav } from "../ItemNav/ItemNav";
 import { useLocation } from "wouter";
 
@@ -11,9 +11,10 @@ interface Props {
   children: ReactNode;
 }
 
-export const NavLayer: React.FC<Props> = ({ children }) => {
+export const HomeLayer: React.FC<Props> = ({ children }) => {
   const [selectedItem, setSelectedItem] = useState<string>("Dashboard");
-  const [location, setLocation] = useLocation()
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [_location, setLocation] = useLocation();
   return (
     <main className={styles.main}>
       <nav>
@@ -33,13 +34,15 @@ export const NavLayer: React.FC<Props> = ({ children }) => {
             imgUrl={AddIcon}
             altImg="Add icon"
           />
+          <div className={styles.logoutContainer}>
+            <ItemNav
+              handleClick={() => setLocation("/")}
+              title="Cerrar sesión"
+              imgUrl={LogoutIcon}
+              altImg="Logout icon"
+            />
+          </div>
         </ol>
-          <ItemNav
-            handleClick={() => setLocation("/")}
-            title="Cerrar sesión"
-            imgUrl={LogoutIcon}
-            altImg="Logout icon"
-          />
       </nav>
       <div className={styles.secondBody}>{children}</div>
     </main>

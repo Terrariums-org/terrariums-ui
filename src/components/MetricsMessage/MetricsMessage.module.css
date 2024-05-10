@@ -1,0 +1,28 @@
+.container {
+  position: relative;
+  background-color: #c1630c1f;
+  width: 85%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.container span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100%;
+  text-align: center;
+  color: #c1630c;
+  text-overflow: ellipsis;
+}
+
+.container:before {
+  content: "";
+  position: absolute;
+  right: -16px;
+  top: 9px;
+  border-top: 8px solid transparent;
+  border-left: 16px solid #c1630c1f;
+  border-bottom: 8px solid transparent;
+}

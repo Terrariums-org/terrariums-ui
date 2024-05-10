@@ -1,7 +1,6 @@
 import React, { HTMLInputTypeAttribute } from "react";
 import styles from "./Input.module.css";
 import { UseFormRegisterReturn } from "react-hook-form";
-//import { UseFormRegisterReturn } from "react-hook-form";
 
 interface Props {
   titleInput: string;
