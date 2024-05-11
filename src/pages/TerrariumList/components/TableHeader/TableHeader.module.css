@@ -1,0 +1,27 @@
+.container {
+  width: 99%;
+  height: 10%;
+  padding: 1% 0 0 1%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container h3 {
+  font-size: 1.5rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.containerButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+  height: 100%;
+}
+
+.containerButton button {
+  height: 50%;
+  font-size: 1.5rem;
+  font-weight: bolder;
+}

@@ -1,0 +1,55 @@
+.terrariumName {
+  padding: 1% 0;
+  width: 65%;
+  height: 50px;
+}
+
+.terrariumNameContainer {
+  width: 92%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 8%;
+  gap: 5%;
+}
+
+.terrariumNumber {
+  font-family: "Gilroy";
+  font-size: 1.1rem;
+  font-weight: bolder;
+  margin-right: 1%;
+}
+
+.terrariumNameContainer div {
+  content: "";
+  background-color: #c1630c;
+  width: 9%;
+  height: 70%;
+  border-radius: 50px;
+}
+
+.buttonIcon {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 40px;
+  margin-left: 30%;
+  border-radius: 10px;
+}
+
+.buttonIcon:hover{
+  cursor: pointer;
+}
+
+.editIcon {
+  background-color: #ffe071;
+}
+
+.deleteIcon {
+  width: 30%;
+  background-color: #f35077;
+  margin-left: 35%;
+}
