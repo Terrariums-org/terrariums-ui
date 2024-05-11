@@ -1,0 +1,82 @@
+.containerForm {
+  margin-top: 2.9%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 90%;
+  height: 95%;
+  border-radius: 15px;
+  background-color: #fff;
+  padding: 2% 5% 4% 5%;
+  gap: 2%;
+}
+
+.headerForm {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding-top: 3%;
+  width: 100%;
+  height: 10%;
+  gap: 5%;
+}
+
+.headerForm span {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.9rem;
+  font-weight: 550;
+  color: #201e43;
+}
+
+.headerForm::after {
+  content: "";
+  background-color: #c1630c;
+  width: 17%;
+  height: 15%;
+  border-radius: 10px;
+}
+
+.inputsContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 75%;
+}
+
+.twoInputsLayer {
+  display: grid;
+  width: 100%;
+  height: 60%;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2%;
+}
+
+.twoInputsLayer div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 63.3%;
+  padding-top: 6.7%;
+}
+
+.twoInputsLayer div:nth-child(odd) {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+  padding: 0;
+}
+
+.twoInputsLayer div:nth-child(odd) input {
+  height: 43%;
+}
+
+.containerForm button {
+  height: 7%;
+  width: 49%;
+}

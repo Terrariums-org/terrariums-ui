@@ -1,11 +1,16 @@
 import { MetricsAlert } from "../../../../components/MetricsAlert/MetricsAlert";
+import { DashboardNames } from "../../../../entities/entity";
 import { TerrariumInput } from "../TerrariumInput/TerrariumInput";
 import styles from "./HeaderList.module.css";
 
-export const HeaderList = () => {
+interface Props {
+  dashboardName: string;
+}
+
+export const HeaderList: React.FC<Props> = ({ dashboardName }) => {
   return (
     <div className={styles.container}>
-      <TerrariumInput />
+      {dashboardName === DashboardNames.DASHBOARD && <TerrariumInput />}
       <MetricsAlert />
     </div>
   );

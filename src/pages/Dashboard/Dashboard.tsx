@@ -11,17 +11,23 @@ const LazyTableTerrariums = lazy(
   () => import("./pages/TableTerrariums/TableTerrariums")
 );
 
+const LazyAddTerrarium = lazy(
+  () => import("./pages/AddTerrarium/AddTerrarium")
+);
+
 export const Dashboard = () => {
   const { dashboardName } = useContext(DashboardContext);
   return (
     <HomeLayer>
-      <HeaderList />
+      <HeaderList dashboardName={dashboardName}/>
       <div className={styles.containerContent}>
         <div className={styles.containerMainContent}>
           <Suspense fallback={"Loading..."}>
             {dashboardName === DashboardNames.DASHBOARD ? (
               <LazyTableTerrariums />
-            ) : null}
+            ) : (
+              <LazyAddTerrarium />
+            )}
           </Suspense>
         </div>
         <ArtImg urlImg={GeckoImg} altImg="Gecko Img" />
