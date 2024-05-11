@@ -1,18 +1,20 @@
 import styles from "./HomeLayer.module.css";
-import { ReactNode, useState } from "react";
+import { ReactNode, useContext } from "react";
 import { TerrariumHeader } from "../TerrariumHeader/TerrariumHeader";
 import Dashboard from "../../assets/svg/dashboard.svg";
 import AddIcon from "../../assets/svg/add.svg";
 import LogoutIcon from "../../assets/svg/logout.svg";
 import { ItemNav } from "../ItemNav/ItemNav";
 import { useLocation } from "wouter";
+import { DashboardContext } from "../../pages/Dashboard/context/DashboardContext";
+import { DashboardNames } from "../../entities/entity";
 
 interface Props {
   children: ReactNode;
 }
 
 export const HomeLayer: React.FC<Props> = ({ children }) => {
-  const [selectedItem, setSelectedItem] = useState<string>("Dashboard");
+  const { dashboardName, setDashboardName } = useContext(DashboardContext);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_location, setLocation] = useLocation();
   return (
@@ -21,15 +23,17 @@ export const HomeLayer: React.FC<Props> = ({ children }) => {
         <TerrariumHeader />
         <ol>
           <ItemNav
-            handleClick={() => setSelectedItem("Dashboard")}
-            selectedItem={selectedItem}
+            nameSelected={DashboardNames.DASHBOARD}
+            handleClick={() => setDashboardName(DashboardNames.DASHBOARD)}
+            selectedItem={dashboardName}
             title="Dashboard"
             imgUrl={Dashboard}
             altImg="Dashboard img"
           />
           <ItemNav
-            handleClick={() => setSelectedItem("Agregar registro")}
-            selectedItem={selectedItem}
+            nameSelected={DashboardNames.ADDREGISTER}
+            handleClick={() => setDashboardName(DashboardNames.ADDREGISTER)}
+            selectedItem={dashboardName}
             title="Agregar registro"
             imgUrl={AddIcon}
             altImg="Add icon"

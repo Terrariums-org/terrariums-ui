@@ -1,6 +1,7 @@
 import styles from "./ItemNav.module.css";
 
 interface Props {
+  nameSelected?: string;
   selectedItem?: string;
   title: string;
   imgUrl: string;
@@ -14,12 +15,13 @@ export const ItemNav: React.FC<Props> = ({
   altImg,
   selectedItem,
   handleClick,
+  nameSelected = "",
 }) => {
   return (
     <li className={styles.list}>
       <span
         onClick={handleClick}
-        className={selectedItem === title ? styles.selected : ""}
+        className={selectedItem === nameSelected ? styles.selected : ""}
       >
         <img src={imgUrl} alt={altImg} />
         {title}
