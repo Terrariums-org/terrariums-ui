@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, createContext } from "react";
-import { DashboardNames } from "../../../../entities/entity";
+import { DASHBOARD_NAMES } from "../../../../constants/DASHBOARD_NAMES";
 
 interface DashboardContextType {
   dashboardName: string;
@@ -7,6 +7,6 @@ interface DashboardContextType {
 }
 
 export const DashboardContext = createContext<DashboardContextType>({
-  dashboardName: DashboardNames.DASHBOARD,
+  dashboardName: DASHBOARD_NAMES.DASHBOARD,
   setDashboardName: () => {},
 });

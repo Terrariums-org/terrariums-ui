@@ -1,4 +1,4 @@
-export const DashboardNames = {
+export const DASHBOARD_NAMES = {
     DASHBOARD : 'dashboard',
     ADDREGISTER : 'addregister',
 }

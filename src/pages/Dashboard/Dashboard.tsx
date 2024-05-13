@@ -5,7 +5,7 @@ import GeckoImg from "../../assets/imgs/gecko.png";
 import { ArtImg } from "../../components/ArtImg/ArtImg";
 import { Suspense, lazy, useContext } from "react";
 import { DashboardContext } from "./context/DashboardContext";
-import { DashboardNames } from "../../entities/entity";
+import { DASHBOARD_NAMES } from "../../constants/DASHBOARD_NAMES";
 
 const LazyTableTerrariums = lazy(
   () => import("./pages/TableTerrariums/TableTerrariums")
@@ -19,11 +19,11 @@ export const Dashboard = () => {
   const { dashboardName } = useContext(DashboardContext);
   return (
     <HomeLayer>
-      <HeaderList dashboardName={dashboardName}/>
+      <HeaderList dashboardName={dashboardName} />
       <div className={styles.containerContent}>
         <div className={styles.containerMainContent}>
           <Suspense fallback={"Loading..."}>
-            {dashboardName === DashboardNames.DASHBOARD ? (
+            {dashboardName === DASHBOARD_NAMES.DASHBOARD ? (
               <LazyTableTerrariums />
             ) : (
               <LazyAddTerrarium />

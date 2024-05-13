@@ -7,7 +7,7 @@ import LogoutIcon from "../../assets/svg/logout.svg";
 import { ItemNav } from "../ItemNav/ItemNav";
 import { useLocation } from "wouter";
 import { DashboardContext } from "../../pages/Dashboard/context/DashboardContext";
-import { DashboardNames } from "../../entities/entity";
+import { DASHBOARD_NAMES } from "../../constants/DASHBOARD_NAMES";
 
 interface Props {
   children: ReactNode;
@@ -23,16 +23,17 @@ export const HomeLayer: React.FC<Props> = ({ children }) => {
         <TerrariumHeader />
         <ol>
           <ItemNav
-            nameSelected={DashboardNames.DASHBOARD}
-            handleClick={() => setDashboardName(DashboardNames.DASHBOARD)}
+            nameSelected={DASHBOARD_NAMES.DASHBOARD}
+            handleClick={() => setDashboardName(DASHBOARD_NAMES.DASHBOARD)}
             selectedItem={dashboardName}
             title="Dashboard"
             imgUrl={Dashboard}
             altImg="Dashboard img"
           />
+
           <ItemNav
-            nameSelected={DashboardNames.ADDREGISTER}
-            handleClick={() => setDashboardName(DashboardNames.ADDREGISTER)}
+            nameSelected={DASHBOARD_NAMES.ADDREGISTER}
+            handleClick={() => setDashboardName(DASHBOARD_NAMES.ADDREGISTER)}
             selectedItem={dashboardName}
             title="Agregar registro"
             imgUrl={AddIcon}

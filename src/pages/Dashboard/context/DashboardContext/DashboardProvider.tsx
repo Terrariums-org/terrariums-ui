@@ -1,6 +1,6 @@
 import { ReactNode, useState } from "react";
 import { DashboardContext } from "./DashboardContext";
-import { DashboardNames } from "../../../../entities/entity";
+import { DASHBOARD_NAMES } from "../../../../constants/DASHBOARD_NAMES";
 
 interface Props {
   children: ReactNode;
@@ -8,7 +8,7 @@ interface Props {
 
 export const DashboardProvider: React.FC<Props> = ({ children }) => {
   const [dashboardName, setDashboardName] = useState<string>(
-    DashboardNames.DASHBOARD
+    DASHBOARD_NAMES.DASHBOARD
   );
   return (
     <DashboardContext.Provider value={{ dashboardName, setDashboardName }}>
