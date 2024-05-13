@@ -15,6 +15,7 @@ export const loginUserAsync = createAsyncThunk(
       const response = await loginUserService(loginUserDTO);
       const token = new CreateTokenResponse(response);
       return token;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       console.error("Error login user");
       throw new Error(error);

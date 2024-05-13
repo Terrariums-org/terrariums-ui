@@ -8,14 +8,14 @@ import { useForm } from "react-hook-form";
 import { CreateUserSchema } from "../../validator/CreateUser.validator";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { RegisterUserBase } from "../../../../entities/entity";
+import { useAppDispatch } from "../../../../redux/entities/reduxDispatch.entity";
+import { registerUserAsync } from "../../../../redux/Auth/thunks";
 
 export const RegisterForm = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_location, setLocation] = useLocation();
-  const {
-    register,
-    handleSubmit,
-  } = useForm<RegisterUserBase>({
+  const dispatch = useAppDispatch();
+  const { register, handleSubmit } = useForm<RegisterUserBase>({
     resolver: zodResolver(CreateUserSchema),
   });
   const handleLogin = (e: React.MouseEvent) => {
@@ -23,7 +23,8 @@ export const RegisterForm = () => {
     setLocation("/");
   };
   const handleOnSubmit = (data: RegisterUserBase) => {
-    console.log(data);
+    dispatch(registerUserAsync(data));
+    setLocation("/dashboard");
   };
   return (
     <div className={styles.mainContainer}>

@@ -15,6 +15,7 @@ export const registerUserAsync = createAsyncThunk(
       const response = await registerUserService(registerUserDTO);
       const token = new CreateTokenResponse(response);
       return token;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error : any) {
       console.error("Error registering user")
       throw new Error(error)

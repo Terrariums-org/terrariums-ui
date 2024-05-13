@@ -8,6 +8,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { LoginUserBase } from "../../../../entities/entity";
 import { LoginUserSchema } from "../../validator/LoginUser.validator";
+import { loginUserAsync } from "../../../../redux/Auth/thunks/loginUser.async";
+import { useAppDispatch } from "../../../../redux/entities/reduxDispatch.entity";
 
 export const Form = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -15,12 +17,13 @@ export const Form = () => {
   const { register, handleSubmit } = useForm<LoginUserBase>({
     resolver: zodResolver(LoginUserSchema),
   });
+  const dispatch = useAppDispatch();
   const handleRegister = (e: React.MouseEvent) => {
     e.preventDefault();
     setLocation("/register");
   };
   const handleOnSubmit = (data: LoginUserBase) => {
-    console.log(data);
+    dispatch(loginUserAsync(data));
     setLocation("/dashboard");
   };
   return (
@@ -47,7 +50,7 @@ export const Form = () => {
           config={register("password")}
         />
         <button className={styles.buttonPassword}>
-          ¿Olvidate tu contraseña?
+          ¿Olvidaste tu contraseña?
         </button>
         <ButtonAction buttonName="Iniciar Sesión" />
       </form>
