@@ -22,7 +22,7 @@ export const TerrariumTable: React.FC<Props> = ({ terrariums, isLoading }) => {
           <p>"Consiguiendo terrarios..."</p>
         ) : (
           terrariums.length > 0 &&
-          terrariums.slice(0, 9).map((terrarium, index) => {
+          terrariums.map((terrarium, index) => {
             return (
               <TerrariumItem
                 terrariumId={index + 1}

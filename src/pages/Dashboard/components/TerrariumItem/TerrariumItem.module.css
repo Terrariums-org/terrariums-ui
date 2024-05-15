@@ -36,20 +36,19 @@
   align-items: center;
   width: 40%;
   height: 40px;
-  margin-left: 30%;
   border-radius: 10px;
 }
 
-.buttonIcon:hover{
+.buttonIcon:hover {
   cursor: pointer;
 }
 
 .editIcon {
+  margin-left: 6%;
   background-color: #ffe071;
 }
 
 .deleteIcon {
-  width: 30%;
   background-color: #f35077;
-  margin-left: 35%;
+  margin-left: 25%;
 }
