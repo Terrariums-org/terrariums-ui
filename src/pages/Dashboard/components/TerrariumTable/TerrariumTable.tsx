@@ -1,7 +1,13 @@
+import { TerrariumForList } from "../../../../entities/entity";
 import { TerrariumItem } from "../TerrariumItem/TerrariumItem";
 import styles from "./TerrariumTable.module.css";
 
-export const TerrariumTable = () => {
+interface Props {
+  terrariums: TerrariumForList[];
+  isLoading: boolean;
+}
+
+export const TerrariumTable: React.FC<Props> = ({ terrariums, isLoading }) => {
   return (
     <table className={styles.table}>
       <thead>
@@ -11,10 +17,21 @@ export const TerrariumTable = () => {
           <th>Eliminar</th>
         </tr>
       </thead>
-      <tbody className={styles.allTerrariums}>
-        <TerrariumItem terrariumId={1} terrariumName="Terrario Fer"/>
-        <TerrariumItem terrariumId={2} terrariumName="Terrario Rox"/>
-        <TerrariumItem terrariumId={3} terrariumName="Terrario"/>
+      <tbody>
+        {isLoading ? (
+          <p>"Consiguiendo terrarios..."</p>
+        ) : (
+          terrariums.length > 0 &&
+          terrariums.slice(0, 9).map((terrarium, index) => {
+            return (
+              <TerrariumItem
+                terrariumId={index + 1}
+                key={index}
+                terrariumName={terrarium.name}
+              />
+            );
+          })
+        )}
       </tbody>
     </table>
   );

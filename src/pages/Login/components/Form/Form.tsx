@@ -22,8 +22,8 @@ export const Form = () => {
     e.preventDefault();
     setLocation("/register");
   };
-  const handleOnSubmit = (data: LoginUserBase) => {
-    dispatch(loginUserAsync(data));
+  const handleOnSubmit = async (data: LoginUserBase) => {
+    await dispatch(loginUserAsync(data));
     setLocation("/dashboard");
   };
   return (

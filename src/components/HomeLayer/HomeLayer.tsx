@@ -8,6 +8,8 @@ import { ItemNav } from "../ItemNav/ItemNav";
 import { useLocation } from "wouter";
 import { DashboardContext } from "../../pages/Dashboard/context/DashboardContext";
 import { DASHBOARD_NAMES } from "../../constants/DASHBOARD_NAMES";
+import { useAppDispatch } from "../../redux/entities/reduxDispatch.entity";
+import { logout } from "../../redux/Auth/auth.slice";
 
 interface Props {
   children: ReactNode;
@@ -17,6 +19,11 @@ export const HomeLayer: React.FC<Props> = ({ children }) => {
   const { dashboardName, setDashboardName } = useContext(DashboardContext);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_location, setLocation] = useLocation();
+  const dispatch = useAppDispatch();
+  const handleLogout = () => {
+    dispatch(logout());
+    setLocation("/");
+  };
   return (
     <main className={styles.main}>
       <nav>
@@ -41,7 +48,7 @@ export const HomeLayer: React.FC<Props> = ({ children }) => {
           />
           <div className={styles.logoutContainer}>
             <ItemNav
-              handleClick={() => setLocation("/")}
+              handleClick={handleLogout}
               title="Cerrar sesión"
               imgUrl={LogoutIcon}
               altImg="Logout icon"

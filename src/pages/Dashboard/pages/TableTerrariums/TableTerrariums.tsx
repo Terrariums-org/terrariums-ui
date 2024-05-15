@@ -1,11 +1,17 @@
+import { TerrariumForList } from "../../../../entities/entity";
 import { TableHeader } from "../../components/TableHeader/TableHeader";
 import { TerrariumTable } from "../../components/TerrariumTable/TerrariumTable";
 
-const TableTerrariums = () => {
+interface Props {
+  terrariums : TerrariumForList[];
+  isLoading : boolean;
+}
+
+const TableTerrariums :React.FC<Props> = ({terrariums, isLoading}) => {
   return (
     <>
       <TableHeader />
-      <TerrariumTable />
+      <TerrariumTable terrariums={terrariums} isLoading={isLoading}/>
     </>
   );
 };

@@ -1,13 +1,19 @@
 import { ActionReducerMapBuilder, createSlice } from "@reduxjs/toolkit";
 import { initialStateAuth } from "./state/initialState";
 import { ReduxSliceName } from "../entities";
-import { setAuthReducerFulfilled, setAuthReducerRejected } from "./reducers";
+import {
+  setAuthReducerFulfilled,
+  setAuthReducerRejected,
+  logoutReducer,
+} from "./reducers";
 import { loginUserAsync, registerUserAsync } from "./thunks";
 
 export const authSlice = createSlice({
   name: ReduxSliceName.AUTH,
   initialState: initialStateAuth,
-  reducers: {},
+  reducers: {
+    logout: logoutReducer,
+  },
   extraReducers: (
     builder: ActionReducerMapBuilder<typeof initialStateAuth>
   ) => {
@@ -22,3 +28,4 @@ export const authSlice = createSlice({
 });
 
 export default authSlice.reducer;
+export const { logout } = authSlice.actions;

@@ -6,6 +6,9 @@ import { ArtImg } from "../../components/ArtImg/ArtImg";
 import { Suspense, lazy, useContext } from "react";
 import { DashboardContext } from "./context/DashboardContext";
 import { DASHBOARD_NAMES } from "../../constants/DASHBOARD_NAMES";
+import { useTerrariums } from "../../hooks/useTerrariums";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/entities";
 
 const LazyTableTerrariums = lazy(
   () => import("./pages/TableTerrariums/TableTerrariums")
@@ -16,15 +19,20 @@ const LazyAddTerrarium = lazy(
 );
 
 export const Dashboard = () => {
+  const { token, id } = useSelector((state: RootState) => state.auth);
+  const { terrariums, isloading, addFilterKey } = useTerrariums(id, token);
   const { dashboardName } = useContext(DashboardContext);
   return (
     <HomeLayer>
-      <HeaderList dashboardName={dashboardName} />
+      <HeaderList dashboardName={dashboardName} addFilterKey={addFilterKey} />
       <div className={styles.containerContent}>
         <div className={styles.containerMainContent}>
           <Suspense fallback={"Loading..."}>
             {dashboardName === DASHBOARD_NAMES.DASHBOARD ? (
-              <LazyTableTerrariums />
+              <LazyTableTerrariums
+                terrariums={terrariums}
+                isLoading={isloading}
+              />
             ) : (
               <LazyAddTerrarium />
             )}
