@@ -6,18 +6,21 @@ import { DashboardProvider } from "../pages/Dashboard/context/DashboardContext";
 import { PrivateRoute } from "./PrivateRouter/PrivateRoute";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/entities";
+import { AlertStatusProvider } from "../context/AlertStatus/AlertStatusProvider";
 
 export const IndexRouter = () => {
   const { token, id } = useSelector((state: RootState) => state.auth);
   return (
     <Switch>
-      <Route path="/" component={Login} />
-      <Route path="/register" component={Register} />
-      <DashboardProvider>
-        <PrivateRoute path="/dashboard" token={token} id={id}>
-          <Dashboard />
-        </PrivateRoute>
-      </DashboardProvider>
+      <AlertStatusProvider>
+        <Route path="/" component={Login} />
+        <Route path="/register" component={Register} />
+        <DashboardProvider>
+          <PrivateRoute path="/dashboard" token={token} id={id}>
+            <Dashboard />
+          </PrivateRoute>
+        </DashboardProvider>
+      </AlertStatusProvider>
     </Switch>
   );
 };

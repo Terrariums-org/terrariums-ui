@@ -45,6 +45,7 @@
 }
 
 .secondBody {
+  position: relative;
   width: 81%;
   height: 90.7%;
   min-height: 90.7%;

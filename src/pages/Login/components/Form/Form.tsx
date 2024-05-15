@@ -10,6 +10,8 @@ import { LoginUserBase } from "../../../../entities/entity";
 import { LoginUserSchema } from "../../validator/LoginUser.validator";
 import { loginUserAsync } from "../../../../redux/Auth/thunks/loginUser.async";
 import { useAppDispatch } from "../../../../redux/entities/reduxDispatch.entity";
+import { useErrorName } from "../../../../hooks/useErrorName";
+import { getStatusActionRedux } from "../../../../utils/getStatusActionRedux";
 
 export const Form = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -18,14 +20,20 @@ export const Form = () => {
     resolver: zodResolver(LoginUserSchema),
   });
   const dispatch = useAppDispatch();
+  const { setError, setStatusActionRedux } = useErrorName("", "/dashboard");
+
   const handleRegister = (e: React.MouseEvent) => {
     e.preventDefault();
     setLocation("/register");
   };
+
   const handleOnSubmit = async (data: LoginUserBase) => {
-    await dispatch(loginUserAsync(data));
-    setLocation("/dashboard");
+    const res = await dispatch(loginUserAsync(data));
+    const statusRedux = getStatusActionRedux(res?.type);
+    setStatusActionRedux(statusRedux);
+    setError(res);
   };
+
   return (
     <div className={styles.mainContainer}>
       <form

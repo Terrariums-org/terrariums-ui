@@ -1,14 +1,14 @@
 import styles from "./Dashboard.module.css";
-import { HomeLayer } from "../../components/HomeLayer/HomeLayer";
-import { HeaderList } from "./components/HeaderList/HeaderList";
+import { useSelector } from "react-redux";
+import { HomeLayer } from "../../layouts/HomeLayer/HomeLayer";
 import GeckoImg from "../../assets/imgs/gecko.png";
-import { ArtImg } from "../../components/ArtImg/ArtImg";
 import { Suspense, lazy, useContext } from "react";
 import { DashboardContext } from "./context/DashboardContext";
 import { DASHBOARD_NAMES } from "../../constants/DASHBOARD_NAMES";
 import { useTerrariums } from "../../hooks/useTerrariums";
-import { useSelector } from "react-redux";
 import { RootState } from "../../redux/entities";
+import { HeaderList } from "./components";
+import { ArtImg } from "../../components";
 
 const LazyTableTerrariums = lazy(
   () => import("./pages/TableTerrariums/TableTerrariums")

@@ -4,4 +4,6 @@ export * from './BASE_URL_SOCKET';
 export * from './BASE_URL_TERRARIUM';
 export * from './BASE_URL_USERS';
 export * from './DASHBOARD_NAMES';
+export * from './INITIAL_STATE_STATUS_TYPE';
 export * from './authKey.localstorage';
+export * from './index';

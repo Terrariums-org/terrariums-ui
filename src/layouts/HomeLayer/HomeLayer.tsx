@@ -1,10 +1,10 @@
 import styles from "./HomeLayer.module.css";
 import { ReactNode, useContext } from "react";
-import { TerrariumHeader } from "../TerrariumHeader/TerrariumHeader";
+import { TerrariumHeader } from "../../components/TerrariumHeader/TerrariumHeader";
 import Dashboard from "../../assets/svg/dashboard.svg";
 import AddIcon from "../../assets/svg/add.svg";
 import LogoutIcon from "../../assets/svg/logout.svg";
-import { ItemNav } from "../ItemNav/ItemNav";
+import { ItemNav } from "../../components/ItemNav/ItemNav";
 import { useLocation } from "wouter";
 import { DashboardContext } from "../../pages/Dashboard/context/DashboardContext";
 import { DASHBOARD_NAMES } from "../../constants/DASHBOARD_NAMES";
