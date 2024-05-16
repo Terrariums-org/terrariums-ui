@@ -23,23 +23,25 @@ export const Dashboard = () => {
   const { terrariums, isloading, addFilterKey } = useTerrariums(id, token);
   const { dashboardName } = useContext(DashboardContext);
   return (
-    <HomeLayer>
-      <HeaderList dashboardName={dashboardName} addFilterKey={addFilterKey} />
-      <div className={styles.containerContent}>
-        <div className={styles.containerMainContent}>
-          <Suspense fallback={"Loading..."}>
-            {dashboardName === DASHBOARD_NAMES.DASHBOARD ? (
-              <LazyTableTerrariums
-                terrariums={terrariums}
-                isLoading={isloading}
-              />
-            ) : (
-              <LazyAddTerrarium />
-            )}
-          </Suspense>
+    <>
+      <HomeLayer>
+        <HeaderList dashboardName={dashboardName} addFilterKey={addFilterKey} />
+        <div className={styles.containerContent}>
+          <div className={styles.containerMainContent}>
+            <Suspense fallback={"Loading..."}>
+              {dashboardName === DASHBOARD_NAMES.DASHBOARD ? (
+                <LazyTableTerrariums
+                  terrariums={terrariums}
+                  isLoading={isloading}
+                />
+              ) : (
+                <LazyAddTerrarium />
+              )}
+            </Suspense>
+          </div>
+          <ArtImg urlImg={GeckoImg} altImg="Gecko Img" />
         </div>
-        <ArtImg urlImg={GeckoImg} altImg="Gecko Img" />
-      </div>
-    </HomeLayer>
+      </HomeLayer>
+    </>
   );
 };

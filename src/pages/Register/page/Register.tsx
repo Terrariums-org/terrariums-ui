@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { AlertStatusContext } from "../../../context/AlertStatus/AlertStatusContext";
 
 export const Register = () => {
-  const { alertStatus } = useContext(AlertStatusContext);
+  const {alertStatus} = useContext(AlertStatusContext)
   const { canShowAlert, message, isValid } = alertStatus;
 
   return (

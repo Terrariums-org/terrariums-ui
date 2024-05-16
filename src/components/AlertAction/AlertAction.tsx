@@ -6,6 +6,7 @@ interface Props {
 }
 
 export const AlertAction: React.FC<Props> = ({ message, isValid }) => {
+  
   return (
     <div
       className={`${styles.container} ${

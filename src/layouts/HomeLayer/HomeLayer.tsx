@@ -10,6 +10,8 @@ import { DashboardContext } from "../../pages/Dashboard/context/DashboardContext
 import { DASHBOARD_NAMES } from "../../constants/DASHBOARD_NAMES";
 import { useAppDispatch } from "../../redux/entities/reduxDispatch.entity";
 import { logout } from "../../redux/Auth/auth.slice";
+import { AlertAction } from "../../components";
+import { AlertStatusContext } from "../../context/AlertStatus/AlertStatusContext";
 
 interface Props {
   children: ReactNode;
@@ -17,9 +19,12 @@ interface Props {
 
 export const HomeLayer: React.FC<Props> = ({ children }) => {
   const { dashboardName, setDashboardName } = useContext(DashboardContext);
+  const { alertStatus } = useContext(AlertStatusContext);
+  const { message, isValid, canShowAlert } = alertStatus;
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_location, setLocation] = useLocation();
   const dispatch = useAppDispatch();
+
   const handleLogout = () => {
     dispatch(logout());
     setLocation("/");
@@ -56,7 +61,10 @@ export const HomeLayer: React.FC<Props> = ({ children }) => {
           </div>
         </ol>
       </nav>
-      <div className={styles.secondBody}>{children}</div>
+      <div className={styles.secondBody}>
+        {canShowAlert && <AlertAction message={message} isValid={isValid} />}
+        {children}
+      </div>
     </main>
   );
 };

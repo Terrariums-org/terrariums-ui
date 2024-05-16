@@ -23,6 +23,7 @@ export const useTerrariums = (id: number = 0, token: string) => {
 
   useEffect(() => {
     if (id === 0) return;
+    if (!Array.isArray(terrariums)) return;
     if (filterKey !== "") {
       setIsLoading(true);
       const filteredTerrariums = terrariums.filter((terrarium) => {
