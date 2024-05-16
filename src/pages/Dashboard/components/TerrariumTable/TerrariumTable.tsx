@@ -19,9 +19,8 @@ export const TerrariumTable: React.FC<Props> = ({ terrariums, isLoading }) => {
       </thead>
       <tbody>
         {isLoading ? (
-          <p>"Consiguiendo terrarios..."</p>
-        ) : (
-          terrariums.length > 0 &&
+          <tr className={styles.noContent}>Consiguiendo terrarios...</tr>
+        ) : terrariums.length > 0 ? (
           terrariums.map((terrarium, index) => {
             return (
               <TerrariumItem
@@ -32,6 +31,8 @@ export const TerrariumTable: React.FC<Props> = ({ terrariums, isLoading }) => {
               />
             );
           })
+        ) : (
+          <tr className={styles.noContent}>No tienes terrarios registrados!</tr>
         )}
       </tbody>
     </table>
