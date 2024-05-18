@@ -3,3 +3,4 @@ export * from './TableHeader/TableHeader';
 export * from './TerrariumInput/TerrariumInput';
 export * from './TerrariumItem/TerrariumItem';
 export * from './TerrariumTable/TerrariumTable';
+export * from './index';

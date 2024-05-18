@@ -7,21 +7,22 @@ import { AlertStatusContext } from "../../../../context/AlertStatus/AlertStatusC
 import { INITIAL_STATE_FOR_STATUS_TYPE } from "../../../../constants";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../../redux/entities";
+import { EditTerrariumContext } from "../../context/EditTerrariumContext";
 
 interface Props {
-  idToShoww: number;
+  idToShow: number;
   terrariumName: string;
   terrariumId: number;
 }
 
 export const TerrariumItem: React.FC<Props> = ({
-  idToShoww,
+  idToShow,
   terrariumName,
   terrariumId,
 }) => {
   const { token } = useSelector((state: RootState) => state.auth);
-
   const { changeStatus } = useContext(AlertStatusContext);
+  const { changeTerrariumState } = useContext(EditTerrariumContext);
 
   const handleDelete = useCallback(
     (e: React.MouseEvent) => {
@@ -53,17 +54,28 @@ export const TerrariumItem: React.FC<Props> = ({
     [terrariumId]
   );
 
+  const handleEdit = (e: React.MouseEvent) => {
+    e.preventDefault();
+    changeTerrariumState({
+      idTerrarium: terrariumId,
+      isOpen: true,
+    });
+  };
+
   return (
     <tr>
       <td className={styles.terrariumName}>
         <div className={styles.terrariumNameContainer}>
-          <span className={styles.terrariumNumber}>{idToShoww}</span>
+          <span className={styles.terrariumNumber}>{idToShow}</span>
           <div></div>
           <span>{terrariumName}</span>
         </div>
       </td>
       <td>
-        <button className={`${styles.buttonIcon} ${styles.editIcon}`}>
+        <button
+          className={`${styles.buttonIcon} ${styles.editIcon}`}
+          onClick={handleEdit}
+        >
           <img src={EditSvg} alt="Edit icon" />
         </button>
       </td>

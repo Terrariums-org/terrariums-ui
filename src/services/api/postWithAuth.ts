@@ -18,6 +18,9 @@ export const postWithAuth = async (url: string, token: string, data: any) => {
       window.localStorage.removeItem(AUTHKEY_LOCALSTORAGE);
       window.location.href = "/";
     }
+    if (response.status === 400) {
+      throw new Error("There was an error processing the request");
+    }
     return response.json();
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {

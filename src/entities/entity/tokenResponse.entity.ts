@@ -1,4 +1,5 @@
 export interface ITokenResponse {
-  id : number;
+  id: number;
   token: string;
+  email: string;
 }

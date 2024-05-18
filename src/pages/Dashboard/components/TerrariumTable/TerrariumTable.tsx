@@ -24,7 +24,7 @@ export const TerrariumTable: React.FC<Props> = ({ terrariums, isLoading }) => {
           terrariums.map((terrarium, index) => {
             return (
               <TerrariumItem
-                idToShoww={index + 1}
+                idToShow={index + 1}
                 key={index}
                 terrariumName={terrarium.name}
                 terrariumId={terrarium.id}

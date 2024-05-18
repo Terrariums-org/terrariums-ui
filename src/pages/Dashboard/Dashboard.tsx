@@ -9,21 +9,30 @@ import { useTerrariums } from "../../hooks/useTerrariums";
 import { RootState } from "../../redux/entities";
 import { HeaderList } from "./components";
 import { ArtImg } from "../../components";
+import { AddTerrariumDto } from "../../entities/dtos";
+import { EditTerrariumProvider } from "./context/EditTerrariumContext";
+import { usePostTerrarium } from "../../hooks";
 
 const LazyTableTerrariums = lazy(
   () => import("./pages/TableTerrariums/TableTerrariums")
 );
 
-const LazyAddTerrarium = lazy(
-  () => import("./pages/AddTerrarium/AddTerrarium")
+const LazyFormTerrarium = lazy(
+  () => import("./pages/FormTerrarium/FormTerrarium")
 );
 
 export const Dashboard = () => {
   const { token, id } = useSelector((state: RootState) => state.auth);
   const { terrariums, isloading, addFilterKey } = useTerrariums(id, token);
   const { dashboardName } = useContext(DashboardContext);
+  const { handlePost } = usePostTerrarium(
+    "Algo fallo al crear el terrario!",
+    "Terrario creado exitosamente!",
+    token
+  );
+
   return (
-    <>
+    <EditTerrariumProvider>
       <HomeLayer>
         <HeaderList dashboardName={dashboardName} addFilterKey={addFilterKey} />
         <div className={styles.containerContent}>
@@ -35,13 +44,20 @@ export const Dashboard = () => {
                   isLoading={isloading}
                 />
               ) : (
-                <LazyAddTerrarium />
+                <LazyFormTerrarium
+                  titleForm="Agregar Terrario"
+                  handleAction={async (data) => {
+                    const reqTerrarium = new AddTerrariumDto(data, id);
+                    await handlePost(reqTerrarium);
+                  }}
+                  titleButton="Agregar"
+                />
               )}
             </Suspense>
           </div>
           <ArtImg urlImg={GeckoImg} altImg="Gecko Img" />
         </div>
       </HomeLayer>
-    </>
+    </EditTerrariumProvider>
   );
 };
