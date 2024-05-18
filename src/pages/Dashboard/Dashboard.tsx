@@ -12,6 +12,7 @@ import { ArtImg } from "../../components";
 import { AddTerrariumDto } from "../../entities/dtos";
 import { EditTerrariumProvider } from "./context/EditTerrariumContext";
 import { usePostTerrarium } from "../../hooks";
+import { MetricsContainer } from "./components/MetricsContainer/MetricsContainer";
 
 const LazyTableTerrariums = lazy(
   () => import("./pages/TableTerrariums/TableTerrariums")
@@ -55,7 +56,10 @@ export const Dashboard = () => {
               )}
             </Suspense>
           </div>
-          <ArtImg urlImg={GeckoImg} altImg="Gecko Img" />
+          <div className={styles.containerImg}>
+            <ArtImg urlImg={GeckoImg} altImg="Gecko Img" />
+            <MetricsContainer />
+          </div>
         </div>
       </HomeLayer>
     </EditTerrariumProvider>
