@@ -7,6 +7,7 @@ import { PrivateRoute } from "./PrivateRouter/PrivateRoute";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/entities";
 import { AlertStatusProvider } from "../context/AlertStatus/AlertStatusProvider";
+import { TerrariumMetricsProvider } from "../context/TerrariumMetrics/TerrariumMetricsProvider";
 
 export const IndexRouter = () => {
   const { token, id } = useSelector((state: RootState) => state.auth);
@@ -16,9 +17,11 @@ export const IndexRouter = () => {
         <Route path="/" component={Login} />
         <Route path="/register" component={Register} />
         <DashboardProvider>
-          <PrivateRoute path="/dashboard" token={token} id={id}>
-            <Dashboard />
-          </PrivateRoute>
+          <TerrariumMetricsProvider>
+            <PrivateRoute path="/dashboard" token={token} id={id}>
+              <Dashboard />
+            </PrivateRoute>
+          </TerrariumMetricsProvider>
         </DashboardProvider>
       </AlertStatusProvider>
     </Switch>

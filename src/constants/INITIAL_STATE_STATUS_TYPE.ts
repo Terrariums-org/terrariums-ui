@@ -1,4 +1,4 @@
-import { statusType } from "../entities/entity/statusTypeContext.entity";
+import { statusType } from "../context/AlertStatus";
 
 export const INITIAL_STATE_FOR_STATUS_TYPE: statusType = {
   message: "",

@@ -28,6 +28,7 @@ export const TerrariumTable: React.FC<Props> = ({ terrariums, isLoading }) => {
                 key={index}
                 terrariumName={terrarium.name}
                 terrariumId={terrarium.id}
+                codeEsp={terrarium.codeEsp}
               />
             );
           })

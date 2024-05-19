@@ -8,21 +8,25 @@ import { INITIAL_STATE_FOR_STATUS_TYPE } from "../../../../constants";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../../redux/entities";
 import { EditTerrariumContext } from "../../context/EditTerrariumContext";
+import { TerrariumMetricsContext } from "../../../../context/TerrariumMetrics";
 
 interface Props {
   idToShow: number;
   terrariumName: string;
   terrariumId: number;
+  codeEsp: string;
 }
 
 export const TerrariumItem: React.FC<Props> = ({
   idToShow,
   terrariumName,
   terrariumId,
+  codeEsp,
 }) => {
   const { token } = useSelector((state: RootState) => state.auth);
   const { changeStatus } = useContext(AlertStatusContext);
   const { changeTerrariumState } = useContext(EditTerrariumContext);
+  const { setTerrarium } = useContext(TerrariumMetricsContext);
 
   const handleDelete = useCallback(
     (e: React.MouseEvent) => {
@@ -62,9 +66,18 @@ export const TerrariumItem: React.FC<Props> = ({
     });
   };
 
+  const handleTerrarium = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setTerrarium({
+      id: terrariumId,
+      name: terrariumName,
+      esp32Code: codeEsp,
+    });
+  };
+
   return (
     <tr>
-      <td className={styles.terrariumName}>
+      <td className={styles.terrariumName} onClick={handleTerrarium}>
         <div className={styles.terrariumNameContainer}>
           <span className={styles.terrariumNumber}>{idToShow}</span>
           <div></div>

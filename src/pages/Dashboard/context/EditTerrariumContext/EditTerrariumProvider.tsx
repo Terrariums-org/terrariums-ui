@@ -1,6 +1,6 @@
 import { ReactNode, useState } from "react";
 import { EditTerrariumContext } from "./EditTerrariumContext";
-import { EditTerrariumI } from "../../../../entities/entity";
+import { EditTerrariumI } from "./editTerrariumContext.entity";
 import { INITIAL_STATE_EDIT_TERRARIUM } from "../../../../constants";
 
 interface Props {

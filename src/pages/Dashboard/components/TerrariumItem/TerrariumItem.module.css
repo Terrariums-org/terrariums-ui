@@ -4,6 +4,10 @@
   height: 50px;
 }
 
+.terrariumName:hover {
+  cursor: pointer;
+}
+
 .terrariumNameContainer {
   width: 92%;
   height: 100%;

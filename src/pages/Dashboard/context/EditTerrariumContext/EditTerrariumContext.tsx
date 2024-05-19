@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, createContext } from "react";
-import { EditTerrariumI } from "../../../../entities/entity";
+import { EditTerrariumI } from "./editTerrariumContext.entity";
 import { INITIAL_STATE_EDIT_TERRARIUM } from "../../../../constants";
 
 interface EditTerrariumType {

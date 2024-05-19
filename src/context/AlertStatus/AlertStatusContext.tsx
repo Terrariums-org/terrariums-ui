@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, createContext } from "react";
-import { statusType } from "../../entities/entity/statusTypeContext.entity";
+import { statusType } from "./statusTypeContext.entity";
 import { INITIAL_STATE_FOR_STATUS_TYPE } from "../../constants";
 
 interface AlertStatusType {

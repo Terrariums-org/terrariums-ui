@@ -4,5 +4,6 @@ export * from './CreateRegisterUser.dto';
 export * from './CreateTokenRes.dto';
 export * from './EditTerrarium.dto';
 export * from './EditTerrariumProfile.dto';
+export * from './SendEmail.dto';
 export * from './TerrariumProfile.dto';
 export * from './index';

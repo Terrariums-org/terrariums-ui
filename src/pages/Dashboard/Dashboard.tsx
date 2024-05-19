@@ -11,7 +11,7 @@ import { HeaderList } from "./components";
 import { ArtImg } from "../../components";
 import { AddTerrariumDto } from "../../entities/dtos";
 import { EditTerrariumProvider } from "./context/EditTerrariumContext";
-import { usePostTerrarium } from "../../hooks";
+import { usePostTerrarium, useTerrariumMetrics } from "../../hooks";
 import { MetricsContainer } from "./components/MetricsContainer/MetricsContainer";
 
 const LazyTableTerrariums = lazy(
@@ -31,6 +31,7 @@ export const Dashboard = () => {
     "Terrario creado exitosamente!",
     token
   );
+  const { humidity, temperature, uv } = useTerrariumMetrics();
 
   return (
     <EditTerrariumProvider>
@@ -58,7 +59,13 @@ export const Dashboard = () => {
           </div>
           <div className={styles.containerImg}>
             <ArtImg urlImg={GeckoImg} altImg="Gecko Img" />
-            <MetricsContainer />
+            {humidity !== null && temperature !== null && uv !== null && (
+              <MetricsContainer
+                humidity={humidity}
+                temperature={parseInt(temperature.toString().substring(0, 4))}
+                uv={uv}
+              />
+            )}
           </div>
         </div>
       </HomeLayer>

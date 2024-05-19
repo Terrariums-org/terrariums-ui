@@ -1,6 +1,6 @@
 import { ReactNode, useState } from "react";
 import { INITIAL_STATE_FOR_STATUS_TYPE } from "../../constants";
-import { statusType } from "../../entities/entity/statusTypeContext.entity";
+import { statusType } from "./statusTypeContext.entity";
 import { AlertStatusContext } from "./AlertStatusContext";
 
 interface Props {
