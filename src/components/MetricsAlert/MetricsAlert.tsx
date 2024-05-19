@@ -2,10 +2,16 @@ import BellSvg from "../../assets/svg/bell.svg";
 import { MetricsMessage } from "../MetricsMessage/MetricsMessage";
 import styles from "./MetricsAlert.module.css";
 
-export const MetricsAlert = () => {
+interface Props {
+  metricsMessage: string;
+}
+
+export const MetricsAlert: React.FC<Props> = ({ metricsMessage }) => {
   return (
     <div className={styles.container}>
-      <MetricsMessage />
+      {metricsMessage !== "" && (
+        <MetricsMessage metricsMessage={metricsMessage} />
+      )}
       <div className={styles.bellContainer}>
         <img src={BellSvg} alt="Bell icon" />
       </div>

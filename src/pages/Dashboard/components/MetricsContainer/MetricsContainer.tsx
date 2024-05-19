@@ -15,11 +15,16 @@ export const MetricsContainer: React.FC<Props> = ({
     <div className={styles.containerMetrics}>
       <span className={styles.temperature}>
         Temperatura {""}
-        <span>{temperature}°</span>
+        <span>
+          {temperature === null
+            ? 0
+            : parseInt(temperature.toString().substring(0, 4))}
+          °
+        </span>
       </span>
       <span className={styles.humidity}>
         Humedad {""}
-        <span>{humidity}%</span>
+        <span>{humidity === null ? 0 : humidity}%</span>
       </span>
       <span className={styles.uv}>
         Rayos UV {""}

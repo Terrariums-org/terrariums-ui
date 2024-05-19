@@ -31,12 +31,16 @@ export const Dashboard = () => {
     "Terrario creado exitosamente!",
     token
   );
-  const { humidity, temperature, uv } = useTerrariumMetrics();
+  const { humidity, temperature, uv, metricsMessage } = useTerrariumMetrics();
 
   return (
     <EditTerrariumProvider>
       <HomeLayer>
-        <HeaderList dashboardName={dashboardName} addFilterKey={addFilterKey} />
+        <HeaderList
+          dashboardName={dashboardName}
+          addFilterKey={addFilterKey}
+          metricsMessage={metricsMessage}
+        />
         <div className={styles.containerContent}>
           <div className={styles.containerMainContent}>
             <Suspense fallback={"Loading..."}>
@@ -59,13 +63,11 @@ export const Dashboard = () => {
           </div>
           <div className={styles.containerImg}>
             <ArtImg urlImg={GeckoImg} altImg="Gecko Img" />
-            {humidity !== null && temperature !== null && uv !== null && (
-              <MetricsContainer
-                humidity={humidity}
-                temperature={parseInt(temperature.toString().substring(0, 4))}
-                uv={uv}
-              />
-            )}
+            <MetricsContainer
+              humidity={humidity}
+              temperature={temperature}
+              uv={uv}
+            />
           </div>
         </div>
       </HomeLayer>

@@ -1,9 +1,13 @@
 import styles from "./MetricsMessage.module.css";
 
-export const MetricsMessage = () => {
+interface Props {
+  metricsMessage: string;
+}
+
+export const MetricsMessage: React.FC<Props> = ({ metricsMessage }) => {
   return (
     <div className={styles.container}>
-      <span>¡La humedad se salio de los parametros!</span>
+      <span>¡{metricsMessage}!</span>
     </div>
   );
 };

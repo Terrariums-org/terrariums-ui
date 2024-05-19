@@ -1,4 +1,5 @@
 .container {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -7,6 +8,8 @@
 }
 
 .bellContainer {
+  position: absolute;
+  right: 0;
   background-color: #000;
   width: 9%;
   height: 100%;
