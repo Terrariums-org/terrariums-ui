@@ -198,7 +198,7 @@ export const useTerrariumMetrics = () => {
       });
     };
     getSocketData();
-  }, []);
+  }, [id]);
 
   return {
     humidity: metrics.humedad,

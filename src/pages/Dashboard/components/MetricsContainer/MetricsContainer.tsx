@@ -24,7 +24,7 @@ export const MetricsContainer: React.FC<Props> = ({
       </span>
       <span className={styles.humidity}>
         Humedad {""}
-        <span>{humidity === null ? 0 : humidity}%</span>
+        <span>{humidity}%</span>
       </span>
       <span className={styles.uv}>
         Rayos UV {""}
