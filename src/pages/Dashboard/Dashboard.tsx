@@ -13,6 +13,7 @@ import { AddTerrariumDto } from "../../entities/dtos";
 import { EditTerrariumProvider } from "./context/EditTerrariumContext";
 import { usePostTerrarium, useTerrariumMetrics } from "../../hooks";
 import { MetricsContainer } from "./components/MetricsContainer/MetricsContainer";
+import { TerrariumStadistics } from "./pages/TerrariumStadistics/TerrariumStadistics";
 
 const LazyTableTerrariums = lazy(
   () => import("./pages/TableTerrariums/TableTerrariums")
@@ -49,7 +50,7 @@ export const Dashboard = () => {
                   terrariums={terrariums}
                   isLoading={isloading}
                 />
-              ) : (
+              ) : dashboardName === DASHBOARD_NAMES.ADDREGISTER ? (
                 <LazyFormTerrarium
                   titleForm="Agregar Terrario"
                   handleAction={async (data) => {
@@ -58,6 +59,8 @@ export const Dashboard = () => {
                   }}
                   titleButton="Agregar"
                 />
+              ) : (
+                <TerrariumStadistics />
               )}
             </Suspense>
           </div>

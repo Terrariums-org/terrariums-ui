@@ -3,6 +3,7 @@ import { ReactNode, useContext } from "react";
 import { TerrariumHeader } from "../../components/TerrariumHeader/TerrariumHeader";
 import Dashboard from "../../assets/svg/dashboard.svg";
 import AddIcon from "../../assets/svg/add.svg";
+import GraphicIcon from "../../assets/svg/graphic.svg";
 import LogoutIcon from "../../assets/svg/logout.svg";
 import { ItemNav } from "../../components/ItemNav/ItemNav";
 import { useLocation } from "wouter";
@@ -50,6 +51,14 @@ export const HomeLayer: React.FC<Props> = ({ children }) => {
             title="Agregar registro"
             imgUrl={AddIcon}
             altImg="Add icon"
+          />
+          <ItemNav
+            nameSelected={DASHBOARD_NAMES.SEE_STADISTICS}
+            handleClick={() => setDashboardName(DASHBOARD_NAMES.SEE_STADISTICS)}
+            selectedItem={dashboardName}
+            title="Ver estadisticas"
+            imgUrl={GraphicIcon}
+            altImg="Estadistics"
           />
           <div className={styles.logoutContainer}>
             <ItemNav

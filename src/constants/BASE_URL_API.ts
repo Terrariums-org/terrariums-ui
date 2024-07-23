@@ -1,1 +1,1 @@
-export const BASE_URL_API = "http://localhost:3000/api";
+export const BASE_URL_API = "https://terrariums-org-api.integrador.xyz/api";

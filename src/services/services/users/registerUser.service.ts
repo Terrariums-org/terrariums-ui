@@ -9,7 +9,7 @@ export const registerUserService = async (
   try {
     const response = await postWithoutAuth(`${BASE_URL_AUTH}/register`, data);
     return response;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
     throw new Error(err);
   }

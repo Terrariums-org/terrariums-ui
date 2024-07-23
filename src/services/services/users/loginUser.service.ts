@@ -8,6 +8,7 @@ export const loginUserService = async (
 ): Promise<ITokenResponse> => {
   try {
     const response = await postWithoutAuth(`${BASE_URL_AUTH}/login`, data);
+    console.log(response)
     return response;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {

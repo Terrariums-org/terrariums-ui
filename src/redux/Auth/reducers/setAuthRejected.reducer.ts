@@ -3,10 +3,11 @@ import { CreateTokenResponse } from "../../../entities/dtos";
 import { AUTHKEY_LOCALSTORAGE } from "../../../constants";
 
 export const setAuthReducerRejected = (
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   _state: CreateTokenResponse,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
   _action: PayloadAction<any>
 ) => {
   window.localStorage.removeItem(AUTHKEY_LOCALSTORAGE);
-  return new CreateTokenResponse({ id: 0, token: "" });
+  return new CreateTokenResponse({ id: 0, token: "", email: "" });
 };
