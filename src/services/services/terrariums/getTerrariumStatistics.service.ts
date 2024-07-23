@@ -3,7 +3,7 @@ import { GraphicI } from "../../../entities/entity";
 import { getWithAuth } from "../../api";
 
 export const getTerrariumStatisticsService = async (
-  id: number,
+  _id: number,
   token: string
 ): Promise<GraphicI> => {
   try {
