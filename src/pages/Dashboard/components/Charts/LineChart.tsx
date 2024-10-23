@@ -5,7 +5,7 @@ interface SimpleLineChartProps {
   data: LinealT[];
 }
 
-export function LineChartExample({ data }: SimpleLineChartProps) {
+export function LineChartExample({ data = []}: SimpleLineChartProps) {
   const xLabels = data.map((item) => new Date(item.date).toLocaleDateString());
   const temperatureData = data.map((item) => parseInt(item.temperature));
   const humidityData = data.map((item) => parseInt(item.humidity));

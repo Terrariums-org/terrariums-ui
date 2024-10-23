@@ -21,8 +21,8 @@ export const TerrariumStadistics = () => {
     <>
       {!isLoading && data ? (
         <div className={styles.container}>
-          <LineChartExample data={data.lineal} />
-          <BarChartHero bars={data.bars} />
+          <LineChartExample data={data?.lineal} />
+          <BarChartHero bars={data?.bars} />
         </div>
       ) : (
         <h1>Cargando...</h1>

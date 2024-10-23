@@ -10,7 +10,9 @@ export const postWithoutAuth = async (url: string, data: any) => {
       body: JSON.stringify(data),
     };
     const response = await fetch(url, body);
+    console.log(response)
     if (
+      response.status === 400 ||
       response.status === 401 ||
       response.status === 404 ||
       response.status === 409

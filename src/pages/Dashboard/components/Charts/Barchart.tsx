@@ -6,7 +6,7 @@ interface BarChartHeroProps {
   bars: BarsT[];
 }
 
-export const BarChartHero: React.FC<BarChartHeroProps> = ({ bars }) => {
+export const BarChartHero: React.FC<BarChartHeroProps> = ({ bars = [] }) => {
   const xAxisData = bars.map((bar) => bar.name);
   const seriesData = bars.map((bar) => bar.level);
 

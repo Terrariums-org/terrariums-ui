@@ -1,1 +1,1 @@
-export const BASE_URL_SOCKET = "http://terrariums-socket-org.integrador.xyz:8080";
+export const BASE_URL_SOCKET = "http://50.17.219.160:8080";
