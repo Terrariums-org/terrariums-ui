@@ -37,3 +37,14 @@
 .login:hover{
     cursor: pointer;
 }
+
+
+
+@media (width <= 700px) {
+  .mainContainer{
+    width: 100%;
+  } 
+  .containerForm{
+    width: 80%;
+  }
+}

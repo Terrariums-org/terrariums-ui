@@ -10,3 +10,9 @@
   height: 100%;
   object-fit: cover;
 }
+
+@media ( width  <= 700px ) {
+  .containerImg {
+    display: none;
+  }
+}

@@ -38,3 +38,12 @@
   color: #C1630C;
   border: none;
 }
+
+@media (width <= 700px) {
+  .mainContainer{
+    width: 80%;
+  }
+  .containerForm{
+    width: 100%;
+  }
+}
