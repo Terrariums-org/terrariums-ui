@@ -26,7 +26,7 @@ export const BarChartHero: React.FC<BarChartHeroProps> = ({ bars = [] }) => {
         },
       ]}
       colors={["#a26328"]}
-      width={700}
+      width={470}
       height={300}
     />
   );

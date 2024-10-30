@@ -31,3 +31,22 @@
   margin-top: -2%;
   font-size: 1.2rem;
 }
+
+@media (width <= 700px) {  
+  .containerMetrics{
+    margin-top: 2%;
+    gap: 2%;
+  }
+  .temperature {
+    font-size: 1rem;
+  }
+  
+  .humidity {
+    font-size: 1rem;
+  }
+  
+  .uv {
+    margin-top: -2%;
+    font-size: 1rem;
+  }
+}

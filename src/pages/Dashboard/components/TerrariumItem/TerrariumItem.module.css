@@ -55,3 +55,24 @@
   background-color: #f35077;
   margin-left: 14%;
 }
+
+@media (width <= 700px) {  
+  .terrariumNameContainer div {
+    width: 15%;
+    height: 59%;
+  }
+
+  .buttonIcon {
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 30px;
+    border-radius: 10px;
+
+    & img{
+      width: 97%;
+    }
+  }
+}

@@ -6,3 +6,10 @@
     height: 10%;
     gap: 12%;
 }
+
+@media (width <= 700px) {
+    .container{
+        height: 7%;
+        padding-top: 2%;
+    }
+}

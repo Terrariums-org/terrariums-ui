@@ -2,6 +2,7 @@
   position: relative;
   background-color: #c1630c1f;
   width: 85%;
+  min-width: 85%;
   height: 100%;
   border-radius: 10px;
 }
@@ -12,6 +13,8 @@
   align-items: center;
   width: 100%;
   min-height: 100%;
+  white-space: nowrap;
+  overflow: hidden;
   text-align: center;
   color: #c1630c;
   text-overflow: ellipsis;
@@ -25,4 +28,29 @@
   border-top: 8px solid transparent;
   border-left: 16px solid #c1630c1f;
   border-bottom: 8px solid transparent;
+}
+
+@media (width <= 700px) {  
+  .container {
+    margin-top: 80px;
+    background-color: #c1630c1f;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    & span{
+      display: block;
+      font-size: 16px;
+    }
+  }
+
+  .container:before {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: -17px;
+    border: 5px solid transparent;
+    border-left: 12px solid transparent;
+    border-bottom: 12px solid #c1630c1f;
+  }
+
 }

@@ -25,3 +25,19 @@
   font-size: 1.5rem;
   font-weight: bolder;
 }
+
+@media (width <= 700px) {  
+  .container h3 {
+    font-size: 1.3rem;
+  }
+
+  .containerButton {
+    width: 20%;
+
+    & button{
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+  }
+
+}

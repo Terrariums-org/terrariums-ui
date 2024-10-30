@@ -9,12 +9,12 @@ interface Props {
 export const MetricsAlert: React.FC<Props> = ({ metricsMessage }) => {
   return (
     <div className={styles.container}>
-      {metricsMessage !== "" && (
-        <MetricsMessage metricsMessage={metricsMessage} />
-      )}
       <div className={styles.bellContainer}>
         <img src={BellSvg} alt="Bell icon" />
       </div>
+      {metricsMessage !== "" && (
+        <MetricsMessage metricsMessage={metricsMessage} />
+      )}
     </div>
   );
 };

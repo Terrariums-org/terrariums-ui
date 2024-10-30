@@ -13,7 +13,7 @@ export function LineChartExample({ data = []}: SimpleLineChartProps) {
 
   return (
     <LineChart
-      width={700}
+      width={470}
       height={300}
       series={[
         {

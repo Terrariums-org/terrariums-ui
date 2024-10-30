@@ -30,3 +30,28 @@
   height: 100%;
   width: 100%;
 }
+
+@media (width <= 700px) {  
+  .containerContent {
+    align-items: flex-start;
+    justify-content: start;
+    flex-direction: column-reverse;
+    gap: 2%;
+  }
+
+  .containerMainContent {
+    width: 90%;
+    max-width: 90%;
+    height: 61%;
+  }
+  
+  .containerImg {
+    padding-top: 5%;
+    width: 90%;
+    height: 30%;
+  }
+  
+  .containerImg picture {
+    display: flex;
+  }
+}

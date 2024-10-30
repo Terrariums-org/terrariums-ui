@@ -52,3 +52,23 @@
 .containerButton button:hover {
   cursor: pointer;
 }
+
+@media (width <= 700px) {  
+  .container {
+    margin-top: -105%;
+    margin-left: -11.2%;
+  }
+
+  .containerContent{
+    width: 91%;
+  }
+
+  .containerButton {
+    height: 5%;
+  }
+
+  .containerButton button {
+    width: 10%;
+    height: 100%;
+  }
+}

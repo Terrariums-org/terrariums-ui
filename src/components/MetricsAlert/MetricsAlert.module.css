@@ -18,3 +18,9 @@
   align-items: center;
   border-radius: 50px;
 }
+
+@media (width <= 700px) {  
+  .bellContainer{
+    width: 25%;
+  }
+}
