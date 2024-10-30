@@ -6,7 +6,7 @@ interface Props {
   titleInput: string;
   text: string;
   type?: HTMLInputTypeAttribute;
-
+  error ?: string;
   config?: UseFormRegisterReturn;
 }
 
@@ -15,6 +15,7 @@ export const Input: React.FC<Props> = ({
   type = "text",
   config,
   titleInput,
+  error = ""
 }) => {
   return (
     <div className={styles.containerInputs}>
@@ -26,6 +27,11 @@ export const Input: React.FC<Props> = ({
         className={styles.input}
         {...config}
       />
+      {
+        error !== "" && (
+          <p className={styles.error}>{error}</p>
+        )
+      }
     </div>
   );
 };

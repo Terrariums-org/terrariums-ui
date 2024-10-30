@@ -16,7 +16,7 @@ import { getStatusActionRedux } from "../../../../utils/getStatusActionRedux";
 export const Form = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_location, setLocation] = useLocation();
-  const { register, handleSubmit } = useForm<LoginUserBase>({
+  const { register, handleSubmit, formState: { errors }, } = useForm<LoginUserBase>({
     resolver: zodResolver(LoginUserSchema),
   });
   const dispatch = useAppDispatch();
@@ -50,12 +50,14 @@ export const Form = () => {
           text="ejemplo@gmail.com"
           config={register("email")}
           type="email"
-        />
+          error={errors?.email?.message}
+          />
         <Input
           type="password"
           titleInput="Contraseña"
           text="Al menos 8 caracteres"
           config={register("password")}
+          error={errors?.password?.message}
         />
         <button className={styles.buttonPassword}>
           ¿Olvidaste tu contraseña?

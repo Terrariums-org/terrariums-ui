@@ -34,7 +34,7 @@
 
 @media (width <= 700px) {  
   .containerMetrics{
-    margin-top: 2%;
+    top: 10%;
     gap: 2%;
   }
   .temperature {
