@@ -74,6 +74,7 @@ export const HomeLayer: React.FC<Props> = ({ children }) => {
         {canShowAlert && <AlertAction message={message} isValid={isValid} />}
         {children}
       </div>
+      
     </main>
   );
 };

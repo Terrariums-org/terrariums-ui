@@ -15,6 +15,11 @@
   transition: 0.3s ease-out;
 }
 
+.list span span{
+  padding: 0;
+  text-align: left;
+}
+
 .list span:hover {
   cursor: pointer;
 }
@@ -24,4 +29,13 @@
   border-radius: 2px;
   color: #c1630c;
   background-color: #c1630c0a;
+}
+
+@media (width <= 700px) {
+  .list span.selected {
+    border-right: none;
+    padding-bottom: 2px;
+    border-bottom: 3px inset #c1630c;
+    background-color: transparent;
+  }
 }

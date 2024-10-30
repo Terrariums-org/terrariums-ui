@@ -24,7 +24,7 @@ export const ItemNav: React.FC<Props> = ({
         className={selectedItem === nameSelected ? styles.selected : ""}
       >
         <img src={imgUrl} alt={altImg} />
-        {title}
+        <span>{title}</span>
       </span>
     </li>
   );
